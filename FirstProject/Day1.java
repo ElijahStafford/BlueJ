@@ -1,17 +1,28 @@
 import java.util.Scanner;
 
-public class Day1
-{
+public class Day1 {
     static Scanner s;
-    static String GetInput() { return s.nextLine(); }
-    static Integer GetInputInt() { return Integer.parseInt(GetInput()); }
-    static void Log(char message) { System.out.println(message); }
-    static void Log(String message) { System.out.println(message); }
+
+    static String GetInput() {
+        return s.nextLine();
+    }
+
+    static Integer GetInputInt() {
+        return Integer.parseInt(GetInput());
+    }
+
+    static void Log(char message) {
+        System.out.println(message);
+    }
+
+    static void Log(String message) {
+        System.out.println(message);
+    }
 
     static void Run() {
         Log('\u000C');
         s = new Scanner(System.in);
-        
+
         Introduction();
     }
 
@@ -25,10 +36,14 @@ public class Day1
         Log("- Player a number game - \"game\"");
         var activity = GetInput();
 
-        if (activity.equals("add")) AddNumbers();
-        else if (activity.equals("print")) Print();
-        else if (activity.equals("set")) SetStats();
-        else if (activity.equals("game")) NumberGame();
+        if (activity.equals("add"))
+            AddNumbers();
+        else if (activity.equals("print"))
+            Print();
+        else if (activity.equals("set"))
+            SetStats();
+        else if (activity.equals("game"))
+            NumberGame();
     }
 
     static void AddNumbers() {
@@ -43,7 +58,8 @@ public class Day1
         var printStr = GetInput();
         Log("How many times do you want to print \"" + printStr + "\"?");
         var amount = GetInputInt();
-        for (int i = 0; i < amount; i++) Log(printStr);
+        for (int i = 0; i < amount; i++)
+            Log(printStr);
     }
 
     static void SetStats() {
@@ -51,15 +67,16 @@ public class Day1
         var list = GetInput();
         list = list.replace(" ", "");
         var set = list.split(",");
-        var max = 0; 
+        var max = 0;
         float average = 0;
 
         for (int i = 0; i < set.length; i++) {
             var num = Integer.parseInt(set[i]);
-            if (num > max) max = num;
+            if (num > max)
+                max = num;
             average += max;
         }
-        
+
         average /= set.length;
 
         Log("The average of the set is " + average + " and the max is " + max);
@@ -70,9 +87,23 @@ public class Day1
         var guesses = 10;
         Log("A number has been picked between 1 and 100.");
 
-        void guess(int num) {
-            Log("You have " + guesses = " turns to guess it.");
-            if ()
-        } 
+        while (guesses > 0) {
+            Log("You have " + guesses + " guess" + (guesses == 1 ? "" : "es") + " to guess the number.");
+            guesses--;
+            var guess = GetInputInt();
+            var difference = Math.abs(guess - target);
+            var status = "";
+            if (difference <= 5) status = " (HOT!!)";
+            if (difference <= 2) status = " (BOILING!!!)";
+            
+            if (guess == target) {
+                Log("You win!! The number was " + target + ".");
+                return;
+            }
+            else if (guess > target) Log("Lower." + status);
+            else Log("Higher." + status);
+        }
+
+        Log("You ran out of guesses :(");
     }
 }
