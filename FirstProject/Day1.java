@@ -20,7 +20,7 @@ public class Day1 {
     }
 
     static void Run() {
-        Log('\u000C');
+        System.out.print('\u000C');
         s = new Scanner(System.in);
 
         Introduction();
