@@ -94,4 +94,13 @@ public class A2 {
 
         Utils.Log("Your grade is " + grade + ".");
     }
+
+    static void GetAscii() {
+        Utils.ClearLog();
+        Utils.Log("Input a number to get the corresponding ASCII character.");
+        var num = Utils.GetInputDouble();
+        var intNum = (int)num;
+        var ascii = (char)intNum;
+        Utils.Log("The DEC value " + intNum + " corresponds to " + ascii + ".");
+    }
 }
