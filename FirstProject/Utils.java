@@ -25,7 +25,12 @@ public class Utils {
         double[] result = new double[set.length];
 
         for (int i = 0; i < set.length; i++)
-            result[i] = Double.parseDouble(set[i]);
+            try {
+                result[i] = Double.parseDouble(set[i]);
+            } catch (NumberFormatException e) {
+                Utils.Log("NumberFormatException occurred, defaulting to 0.");
+                result[i] = 0;
+            }
 
         return result;
     }

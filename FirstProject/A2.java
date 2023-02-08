@@ -47,15 +47,21 @@ public class A2 {
         Utils.Log("The average of the set is " + average + ".");
     }
 
-    static void SetStandardDeviation() {
+    static void SetStandardDeviation(boolean limitNumbers) {
         Utils.ClearLog();
         Utils.Log("Type out your set as a list, e.g. 1, 2, 3, 4");
-        Utils.Log("Numbers can be decimal.");
+        Utils.Log("Numbers can be decimal.", !limitNumbers);
+        if (limitNumbers) Utils.Log(" Must be between 33 and 255.");
         var set = Utils.GetSetFromString(Utils.GetInput());
 
         double average = 0;
-        for (double num : set)
+        for (double num : set) {
+            if ((num < 33 || num > 255) && limitNumbers) {
+                Utils.Log("Number must be between 33 and 255.");
+                return;
+            }
             average += num;
+        }
         average /= set.length;
 
         double sum = 0;
