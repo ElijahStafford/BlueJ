@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Utils
+comment1.params=
+comment1.target=void\ ClearLog()
+comment2.params=
+comment2.target=java.lang.String\ GetInput()
+comment3.params=
+comment3.target=java.lang.Integer\ GetInputInt()
+comment4.params=message\ newLine
+comment4.target=void\ Log(char,\ boolean)
+comment5.params=message
+comment5.target=void\ Log(char)
+comment6.params=message\ newLine
+comment6.target=void\ Log(java.lang.String,\ boolean)
+comment7.params=message
+comment7.target=void\ Log(java.lang.String)
+numComments=8
