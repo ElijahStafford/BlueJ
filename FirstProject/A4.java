@@ -21,5 +21,15 @@ public class A4 {
         "\nFirst 3 characters: " + myString.substring(0, 3) +
         "\nThird to 11th: " + myString.substring(2, 11) + 
         "\nRandom character removed: " + randString);
+
+        var customString = "abcdefghijklmnopqrstuv";
+        var charArr = customString.toCharArray();
+
+        Utils.Log("Original: " + customString +
+        "\nString length: " + customString.length() + 
+        "\nLess than: \"aaaa\" = " + customString.compareTo("aaaa") +
+        "\nGreater than: \"abcdefghijklmnopqrstuvqrstuv\" = " + customString.compareTo("abcdefghijklmnopqrstuvqrstuv") +
+        "\nEqual to: \"ABCDEFGHIJKLMNOPQRSTUV\" = " + customString.compareTo("ABCDEFGHIJKLMNOPQRSTUV") +
+        "\nLetters 4 and 17: " + charArr[3] + " " + charArr[16]);
     }
 }
