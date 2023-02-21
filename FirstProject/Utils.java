@@ -35,6 +35,11 @@ public class Utils {
         return result;
     }
 
+    static double Random(double min, double max) {
+        var difference = max - min;
+        return Math.random() * difference + min;
+    }
+
     // Log overloads
     static void Log(char message, boolean newLine) {
         if (newLine)
